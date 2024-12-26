@@ -4,13 +4,18 @@ package days02;
 /**
  * @author yusica
  * @data 2024. 12. 24. - 오전 9:36:28
- * @subject 
+ * @subject  몇가지 오류 정리
  * @content
  */
 public class Ex01 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// 지역변수는 반드시 초기화해야한다.
+		String name;
+		// The value of the local variable age is not used
+		int age = 20;
+		// The local variable name may not have been initialized
+		//System.out.println(name);
 
 	}
 
