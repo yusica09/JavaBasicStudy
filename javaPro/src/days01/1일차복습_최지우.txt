@@ -1,0 +1,96 @@
+
+1. JDK/JRE/JVM에 대해서 설명하세요.
+ - JDK(Java Development Kit) = JRE + 기타 여러 도구들
+ - JRE(Java Runtime Environment) = JVM + 클래스 라이브러리
+ - JVM(Java Virtual Machine) = 자바로 작성한 코드를 컴파일한 바이트코드로 실행을 도와주는 가상머신
+
+2. JDK 설치 확인 방법에 대해서 설명하세요.
+명령프롬프트에서 java -version
+
+3. 설치된 JDK 제거하는 방법에 대해서 설명하세요.
+C:\Program Files\Java 에서 제거 원하는 jdk 폴더 삭제
+
+4. JDK 를 설치 후 환경변수 설정에 대해서 설명하세요.  
+  [시스템변수] 
+  1) 변수이름 		: [    JAVA_HOME    ]
+      변수값    	: [    	사용원하는 jdk 파일 경로 (ex. C:\Program Files\Java\jdk-11  ] 
+  2) 변수이름 		: [   	PATH 	]
+      변수값   	: [   	%JAVA_HOME%\bin;	]  
+    
+5. 자바에서 
+  1) 클래스 선언 형식을 적으세요.   [접근지정자] [기타제어자] class키워드 클래스명{ }
+  2) 함수(메서드) 선언 형식을 적으세요.   [접근지정자] [기타제어자] [리턴값] 메소드명(main) { }
+  3) 변수 선언 형식을 적으세요.   [자료형] [변수명]; 
+  4) 상수 선언 형식을 적으세요.  final 키워드 [자료형] [변수명] = [초기값];
+
+6. 자바 프로그램의 기본 구조에 대해서 설명하세요. 
+자바는 객체 지향적 프로그래밍 언어 (Object Orient Programming) 이므로 시작 객체(개체)가 필요 == 클래스 1개 필요
+파일명과 클래스명이 동일해야함
+클래스명의 첫글자는 대문자여야함
+시작 개체에는 main 메서드가 선언 되어야함
+
+7. 메모장을 사용해서 
+   1) 소스파일(Source File)을      Test.java  로 생성하고
+     이름,나이,등급, 키을 저장할 변수를 선언하고, 아래의 값으로 초기화를 한 후 
+     출력형식과 같이 출력하는 코딩을 하세요.
+     [출력형식]
+     	Name="kenik", Height=182.28cm, Age=20, Grade='A'
+     조건) System.out.printf() 를 사용하세요.	  
+   
+public class Test{
+	public static void main(String[] args){
+		String name = "kenik";
+		double height = 182.28;
+		int age = 20;
+		char grade = 'A';
+		System.out.printf("Name=\"%s\", Height=%.2fcm, Age=%d, Grade='%c'" , name, height, age, grade);
+	}
+}
+
+
+   2) 자바 컴파일러( javac.exe )로 컴파일하고
+    javac Test.java
+   3) 자바 인터프리터( java.exe)로 실행하세요.
+    java Test
+   
+8. 어제 배운 이클립스 단축키를  적어주세요.  
+main - ctrl + space bar = public static void main(String[] args) { }
+syso - ctrl + space bar = System.out.println()
+
+9. 키워드(keyword)와 식별자( identifier) 설명하세요
+ 키워드는 자바내에서 통일되어있는 이름 ex) continue , true 등
+ 식별자는 코드 개발자가 명명한 이름 ex) 변수, 클래스명, 패키지명 등
+
+10.  [변수, 상수, 리터럴]에 대해서 설명하세요. 
+   변수와 상수는 둘다 어떠한 값을 저장하는 저장 공간이지만, 
+   변수는 값의 변경이 가능하고 상수는 처음 초기화한 값에서 변경할 수 없다.
+   리터럴은 프로그램에서 값을 나타내기 위한 기본요소
+
+11. 식별자(변수,클래스명, 패키지명 등등)를 명명하는 규칙에 대해서 설명하세요. 
+기호는 _와 $만 사용 가능하며, 숫자가 맨 앞에 올 수 없다.
+일반적으로 소문자를 사용하고, 여러 단어를 합쳐서 사용할 경우 Camel case 이용.
+클래스명의 경우 첫영문자를 대문자로 해야한다.
+   
+12. 함수(메서드)를 사용할 때 중요한 3가지 사항에 대해서 설명하세요. 
+     1)   기능 - 프로그램의 시작과 종료(진입점)
+     2)   매개변수 - main 메서드에서 String[] args
+     3)   리턴값(반환값) - 어떤 메서드에서 반환되는 값. main 메서드에서 void
+     
+
+13. 오류/경고 메시지 설명
+   1) The value of the local variable age is not used
+ age가 지역변수 값으로 사용되지 않는다는 의미(= 사용되지 않음)
+   2) The local variable name may not have been initialized
+지역변수 name이 초기화되지 않았다는 의미
+   3) name cannot be resolved to a variable  
+ name이 변수로 정의되지 않았는데 사용했다는 의미
+       
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+      
