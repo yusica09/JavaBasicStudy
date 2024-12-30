@@ -1,0 +1,246 @@
+Scanner scanner = new Scanner(System.in);
+		 
+System.out.print("> 이름 입력 : "); 
+String name = scanner.nextLine();
+System.out.print("> 국어점수 입력 : "); 
+int kor = Integer.parseInt(scanner.nextLine());
+System.out.print("> 영어점수 입력 : "); 
+int eng = Integer.parseInt(scanner.nextLine());
+System.out.print("> 수학점수 입력 : "); 
+ int mat = Integer.parseInt(scanner.nextLine());
+		  
+ int total = kor + eng + mat ; double avg = (double)total / 3;
+		  
+System.out.printf("이름=\"%s\",국어=%d,영어=%d,수학=%d,총점=%d,평균=%.2f", name, kor,
+		  eng, mat, total, avg);
+
+----------------------------------------------------------------------------
+Scanner scanner = new Scanner(System.in);
+		 
+System.out.print("> 이름 국어 영어 수학 입력 : "); 
+		  
+String name = scanner.next();
+int kor = scanner.nextInt();
+int eng = scanner.nextInt();
+int mat = scanner.nextInt();
+		  
+int total = kor + eng + mat ; 
+double avg = (double)total / 3;
+		  
+System.out.printf("이름=\"%s\",국어=%d,영어=%d,수학=%d,총점=%d,평균=%.2f\n", name, kor,
+		  eng, mat, total, avg);
+--------------------------------------------------------------------------------
+String input = "1 fish 2 fish red fish blue fish";
+//Scanner 스캐너이름 = new Scanner(스캐너가 읽을 대상)
+// scanner.useDelimiter(String pattern) : 정규표현식을 알아야 패턴 설정 가능
+// '\s' == space 공백
+//  *  == 반복횟수 -> 0~여러번
+Scanner s = new Scanner(input).useDelimiter("\\s*fish\\s*");
+System.out.println(s.nextInt());
+System.out.println(s.nextInt());
+System.out.println(s.next());
+System.out.println(s.next());
+		
+s.close();
+---------------------------------------------------------------------------------
+Scanner sc = new Scanner(System.in);
+int angle1 = sc.nextInt();
+int angle2 = sc.nextInt();
+int sum_angle = angle1 + angle2;
+System.out.println(sum_angle % 360);
+--------------------------------------------------------------------------------
+String name; byte age; double height; boolean gender;
+		
+Scanner scanner = new Scanner(System.in);
+System.out.print("> 이름 나이 키 성별 입력 : ");
+		
+name = scanner.next();
+age = scanner.nextByte();
+height = scanner.nextDouble();
+gender = scanner.nextBoolean();
+		
+//삼항 연산자 사용
+System.out.printf("> 이름:%s, 나이:%d살, 키:%.2f, 성별:%s\n",
+				name, age, height, gender? "남자":"여자");
+
+--------------------------------------------------------------------------------------
+* 제어문
+1. 정의 : 프로그램의 흐름을 제어(반복, 실행 X 등)하는 문
+2. 종류
+	1) 	조건문	if문 - else if문 - else 문
+	2)	분기문	switch 문
+	3)	반복문	for문 		foreach문
+	3-2)	조건반복문	while문, do~while문
+	4)	기타		break문, continue문
+------------------------------------------------------------------------------------
+switch(n % 2) {
+	case 0:
+		System.out.println("짝수");
+		break;
+	//case 1:
+	default:
+		System.out.println("홀수");
+		break;
+}
+---------------------------------------------------------------------------------
+// 자바에서 임의의 수 발생시키는 방법
+// 1) Math.random() ***
+// 2) Random 클래스
+--------------------------------------------------------------------------------		
+// 0.0 <= 		double	Math.random()	 < 1.0
+for(int i=0; i<10; i++) {
+	System.out.println(Math.random());			
+}
+----------------------------------------------------------------------------------
+// 1 <= 	(int)(Math.random()*45)+1	< 46
+for(int i=0; i<10; i++) {
+	System.out.println((int)(Math.random()*45)+1);
+		
+---------------------------------------------------------------------------------		
+for(int i=0; i<1000; i++) {
+	int n = (int)(Math.random()*45)+1;
+		if(n < 1 || n > 45) {
+			System.out.println("범위에서 벗어남");
+		}
+}
+System.out.println("END");
+---------------------------------------------------------------------------------
+컴퓨터와 사용자가 가위(1)/바위(2)/보(3) 게임
+
+int com, user;
+		
+Scanner scanner = new Scanner(System.in);
+		
+com = (int)(Math.random()*3) + 1;
+		
+System.out.print("> user 가위(1)/바위(2)/보(3) 중 선택 : ");
+user = scanner.nextInt();
+		
+System.out.printf("> com=%d, user=%d\n", com, user);
+		
+// 승자 판단해서 출력  -- > 경우의 수는 생각해서 하기. switch말고 if문도 가능하긴함. 
+switch ( user - com ) {
+	case 0:
+		System.out.println("무승부");
+		break;
+	case 1:
+		System.out.println("user 승");
+		break;
+	case -2:
+		System.out.println("user 승");
+		break;
+	case -1:
+		System.out.println("com 승");
+		break;
+	case 2:
+		System.out.println("com 승");
+		break;
+	}
+
+------------------------------------------------------------------------------------------------------------------
+// [2] 홀수의 합
+// 1+3+5+7+9 = 25
+int sum = 0;
+for(int i=1; i<= 10; i++) {
+	if(i%2 == 1) {
+		if(i != 9)
+			System.out.printf(" %d +",i);
+		else
+			System.out.printf(" %d ",i);
+		sum += i;
+	}
+}
+System.out.printf("= %d\n",sum);
+
+-------------------------------------------------------------------------------------------------------------------
+//[2]-2 홀수합 다른 방법 - continue 이용해보기
+int sum2 = 0;
+for(int i=1; i<= 10; i++) {
+	if(i%2 == 0) continue;
+	else{
+		if(i != 9)
+			System.out.printf(" %d +",i);
+		else
+			System.out.printf(" %d ",i);
+		sum2 += i;
+	}
+}
+System.out.printf("= %d\n",sum2);
+-------------------------------------------------------------------------
+// break가 들어가게 되면 2에서 끊김
+int sum3 = 0;
+for(int i=1; i<= 10; i++) {
+	if(i%2 == 0) break;
+	else{
+		if(i != 9)
+			System.out.printf(" %d +",i);
+		else
+			System.out.printf(" %d ",i);
+		sum3 += i;
+	}
+}
+System.out.printf("= %d\n",sum3);
+-------------------------------------------------------------------------------------------
+** while문에서 continue 사용은 무한루프에 빠지기 쉬우므로 쓰지 않는게 좋다 **
+
+-------------------------------------------------
+(1)
+
+// continue 쓰고 싶을 때 (원래는 안쓰는게 좋지만)
+int i = 1, sum =0;	
+while(i <= 10) {
+	if (i %2 ==0) {
+		i++; 
+		continue;
+	}
+	System.out.printf(" %d +",i);
+	sum += i;
+	i++;
+}
+System.out.printf("= %d\n",sum);
+
+-----------------------------------------------------
+(2)
+
+/* continue 넣고 싶을 때 다른 수정방법 ! 
+ * 
+ * while문의 조건문에 ++ 기호를 넣을 수 있다는걸 응용하자!
+ *   ---> 대신 이 경우 조건문의 범위를 잘 생각해서 정하기
+* 
+  	int i = 0, sum =0;	
+	while(i++ < 10) {
+		if (i %2 ==0) continue;
+		System.out.printf(" %d +",i);
+		sum += i;
+	}
+	System.out.printf("= %d\n",sum);
+		
+		또는
+		
+	int i = 0, sum =0;	
+	while(++i <= 10) {
+		if (i %2 ==0) continue;
+		System.out.printf(" %d +",i);
+		sum += i;
+	}
+	System.out.printf("= %d\n",sum);
+* 
+ * */
+
+-------------------------------------------------------------------------		
+ *****
+ 배열은 값을 할당하지 않으면 배열의 자료형의 기본값으로 설정되어있음
+ (쓰레기값 아님 !! 주의 )
+ int -> 0 , boolean -> false, double -> 0.0
+ *****
+-------------------------------------------------------------------------
+*****
+// foreach 문 사용 --> 읽기 용도 !! 
+for(int kor : kors) {
+	System.out.println(kor);
+}
+*****
+--------------------------------------------------------
+
+
+
