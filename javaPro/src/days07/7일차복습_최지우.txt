@@ -1,0 +1,50 @@
+1. 국어 점수를 입력받아서 반환하는 메서드를 선언하세요. 
+   ( 조건 : 정규표현식을 사용해서 유효성 검사하고 유효하지 않은 국어 점수 일 때는
+    반복해서 다시 입력받도록 처리하세요. )
+
+	private static int getScore(Scanner scanner) {
+		String score;
+		String regex = "^(100|[1-9]?\\d)$";
+		boolean flag = false;
+		
+		do {
+			if(flag){
+				System.out.println("> 다시 입력해주세요");
+			}
+			System.out.print("> 점수 입력 : ");
+			score = scanner.next();
+			flag = true;
+			// 입력받고 중복 확인
+		} while (!score.matches(regex));
+		
+		return Integer.parseInt(score);	
+	}
+
+
+    
+2. 년도를 매개변수로 받아서 윤년, 평년을 boolean 형으로 반환하는 메서드를 선언하세요.
+
+	private static boolean isLeapyear(int year) {
+		if(year%4==0 && year%100 != 0 || year%400==0)
+			return true;
+		return false;		
+	}
+
+3. 1 ~ n 까지의 합을 구해서 반환하는   [재귀함수]를 선언하세요.
+
+	private static int recursiveSum(int n) {
+		if(n == 1) return n;
+		else return n + recursiveSum(n-1);
+	}
+
+
+4. 로또 중복체크는 하는 isDuplicateLotto 함수를 선언하세요. ( 조건 잘 보세요 )
+     ( 조건 : 중복되면 false를 반환,  중복되지 않으면 true 반환) 
+
+	private static boolean isDuplicateLotto(int[] k, int index, int num) {
+		// 중복시 false , 아닐시 true
+		for (int i = 0; i < index; i++) {
+			if(k[i] == num) return false;
+		}
+		return true;
+	}
