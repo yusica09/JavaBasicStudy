@@ -1,0 +1,94 @@
+1. 주민등록번호를 입력받아서 만나이를 계산후 반환하는 메서드를 선언하세요..
+
+ 	private static int getAmericanAge(String rrn) {
+		
+		int gender = Integer.parseInt(rrn.substring(7,8));
+		int year = Integer.parseInt(rrn.substring(0,2));
+		int month = Integer.parseInt(rrn.substring(2,4));
+		int day = Integer.parseInt(rrn.substring(4,6));
+		
+		switch (gender) {
+		case '9': case '0':
+			year += 1800;
+			break;
+		case '1': case '2': case '5': case '6':
+			year += 1900;
+			break;
+
+		default:
+			year += 2000;
+			break;
+		}
+		
+		Date d = new Date();
+		int currentYear = d.getYear() + 1900;
+		int currentMonth = d.getMonth() + 1;
+		int currentDay = d.getDate();
+		
+		if(currentMonth > month || (currentMonth == month && currentDay > day))
+			return currentYear - year;
+		else	return currentYear - year - 1;
+		
+	}
+
+
+
+2. 10진수 정수를 입력받아서 2진수로 출력하세요.
+
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("> 정수 입력 : ");
+		int num = scanner.nextInt();
+		
+		String res = "";
+		while(num != 0) {
+			res = num%2 + res;
+			num /= 2;
+		}
+		
+		System.out.println("0".repeat(16-res.length())+res);
+
+
+
+
+2-2. 10진수 정수를 입력받아서 16진수로 출력하세요.
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("> 정수 입력 : ");
+		int num = scanner.nextInt();
+		
+		String res = "";
+		while(num != 0) {
+			res = num%2 + res;
+			num /= 2;
+		}
+		
+		res = "0".repeat(16-res.length()) + res;
+		
+		String hex = "";
+		for (int i = 0; i < res.length(); i+= 4) {
+			int sup = 8; int sum = 0;
+			for (int j = i; j < i+4; j++) {
+				sum += Integer.parseInt(res.substring(j,j+1)) * sup;
+				sup /= 2;
+			}
+			if(sum >= 10) {
+				sum += 55;
+				hex += String.valueOf((char)sum);
+			}else if(sum != 0) {
+				hex+= sum;
+			} 
+			
+		}
+		System.out.println(hex);
+
+ 
+3. 배열 크기를 3 증가하는 코딩을 하세요 . 
+   int [] m = {1,2,3};
+
+
+		int [] m = {1,2,3};
+		int [] temp = Arrays.copyOf(m, m.length+3);
+		m = temp;
+		System.out.println(Arrays.toString(m));
+   
