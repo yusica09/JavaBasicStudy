@@ -1,35 +1,24 @@
-package days09;
+package days11;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-import days07.Sample;
-
 /**
  * @author yusica
- * @data 2025. 1. 7. - 오전 11:20:39
- * @subject	(시험)
- * @content	한 반(30명) 학생들의 성적 관리
- * 				(이름, 국어, 영어, 수학, 총점, 평균, 등수)
- * 				1. 이름, 국, 영, 수 입력
- * 				2. 총점, 평균, 등수 계산 처리
- * 				3. 모든 학생 정보를 출력
+ * @data 2025. 1. 9. - 오후 5:04:38
+ * @subject	Student 클래스 선언
+ * @content	클래스 배열 선언 코딩 수정. (유지, 보수)
  */
-public class Ex04 {
+public class Ex10 {
 
 	public static void main(String[] args) throws IOException {
 		
 		final int STUDENT_COUNT = 30;
 		
-		String [] names = new String[STUDENT_COUNT];
-		int [] kors = new int[STUDENT_COUNT];
-		int [] engs = new int[STUDENT_COUNT];
-		int [] mats = new int[STUDENT_COUNT];
-		int [] tots = new int[STUDENT_COUNT];
-		double [] avgs = new double[STUDENT_COUNT];
-		int [] ranks = new int[STUDENT_COUNT];
+		Student[] students = new Student[STUDENT_COUNT];
+		
 		
 		int cnt = 0;	// 입력받은 학생의 수
 		char con = 'y';
@@ -45,8 +34,7 @@ public class Ex04 {
 			//
 			System.out.print("> 이름 국어 영어 수학 점수 입력 : ");
 			name = getName();
-			//kor = getScore();
-			kor = scanner.nextInt();
+			kor = getScore();
 			eng = getScore();
 			mat = getScore();
 			
@@ -54,14 +42,16 @@ public class Ex04 {
 			avg = (double)tot/3;
 			rank = 1;
 			
-			// 각각의 배열에 어디에 채워넣을까?
-			names[cnt] = name;
-			kors[cnt] = kor;
-			engs[cnt] = eng;
-			mats[cnt] = mat;
-			tots[cnt] = tot;
-			avgs[cnt] = avg;
-			ranks[cnt] = rank;
+			// 객체 생성 후 채워넣기
+			students[cnt] = new Student();
+			
+			students[cnt].name = name;
+			students[cnt].kor = kor;
+			students[cnt].eng = eng;
+			students[cnt].mat = mat;
+			students[cnt].tot = tot;
+			students[cnt].avg = avg;
+			students[cnt].rank = rank;
 			
 			cnt++;
 			// 계속 입력 여부
@@ -71,40 +61,20 @@ public class Ex04 {
 		} while (Character.toUpperCase(con) == 'Y');
 		
 		// 모든 학생들의 등수를 처리..
+	
 		for (int i = 0; i < cnt; i++) {
-			ranks[i] = 1;
+			students[i].rank = 1;
 			for (int j = 0; j < cnt; j++) {
-				if(i !=j && tots[i] <= tots[j]) ranks[i]++;
+				if(i !=j && students[i].tot <= students[j].tot) students[i].rank++;
 			}
 		}
+
 		
 		System.out.printf("> 입력받은 학생수 : %d명\n", cnt);
 		//출력
 		for(int i=0;i<cnt;i++) {
-			System.out.printf("[%d]\t%s\t%d\t%d\t%d\t%d\t%.2f\t\t%d\n",
-					i+1,names[i],kors[i],engs[i],mats[i],tots[i],avgs[i],ranks[i]);
+			System.out.printf("[%d번]\t%s\n",i+2,students[i].getStudentInfo_2());
 		}
-		
-		// 국어 점수가 가장 높은 학생의 이름과 국어점수를 출력
-		boolean [] highKors = new boolean[cnt];
-		int highIndex = 0;
-		
-		for (int i = 0; i < cnt; i++) {
-			if(kors[i]>kors[highIndex]) {
-				Arrays.fill(highKors, false);
-				highKors[i] = true;
-				highIndex = i;
-			}
-			else if(kors[i] == kors[highIndex])
-				highKors[i] = true;
-		}
-		
-		for (int i = 0; i < highKors.length; i++) {
-			if(highKors[i]) {
-				System.out.printf("> 국어 점수가 가장 높은 학생 : %s, 점수 : %d\n",names[i],kors[i]);
-			}
-		}
-		
 
 	}//main
 	
