@@ -1,6 +1,6 @@
 package days14;
 
-class Car {
+public class Car {
 
 	//필드
 	String name;
@@ -18,7 +18,7 @@ class Car {
 	}
 
 	//디폴트 생성자
-	Car(){
+	public Car(){
 		this.engine = new K_Engine();
 	}
 
@@ -27,7 +27,7 @@ class Car {
 	}
 
 	//메서드
-	void speedUp(int fuel) {
+	public void speedUp(int fuel) {
 		this.engine.moreFuel(fuel);
 	}
 	void speedDown(int fuel) {
