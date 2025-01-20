@@ -13,7 +13,7 @@ public class Ex11 {
 
 	public static void main(String[] args) {
 
-		String[] data = { "bat", "baby", "bonus", "cA", "ca", "co", "c.", "c0", "car", "combat", "count", "date",
+		String[] data = { "bat", "baby", "bonus",  "cA", "ca", "co", "c.", "c0", "car", "combat", "count", "date",
 				"disc", "fx" };
 
 		// [ 정규표현식을 설명하세요 ]
