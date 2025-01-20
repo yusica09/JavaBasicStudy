@@ -3,8 +3,8 @@ package days16;
 public class Ex05 {
 
 	public static void main(String[] args) {
-		// StringBuffer 클래스  - 멀티스레드 X
-	    // StringBuilder 클래스 - 멀티스레드 O ( == 동기화 처리 O )
+		// StringBuffer 클래스  - 멀티스레드 O
+	    // StringBuilder 클래스 - 멀티스레드 x ( == 동기화 처리 x)
 
 
 		//불변

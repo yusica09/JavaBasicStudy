@@ -6,7 +6,7 @@ import java.util.Iterator;
  * @author yusica
  * @data 2025. 1. 17. - 오전 11:21:49
  * @subject		String 불변
- * @content		StringBuffer(동X) / StringBuilder(동O)
+ * @content		StringBuffer(동O) / StringBuilder(동X)
  */
 public class Ex03 {
 
