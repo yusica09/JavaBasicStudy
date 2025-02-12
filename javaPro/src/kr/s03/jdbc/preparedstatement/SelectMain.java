@@ -1,4 +1,4 @@
-package kr.s02.jdbc.statement;
+package kr.s03.jdbc.preparedstatement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
