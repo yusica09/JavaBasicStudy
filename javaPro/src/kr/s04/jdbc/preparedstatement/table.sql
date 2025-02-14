@@ -6,3 +6,5 @@ create table test3(
 	email varchar2(30),
 	reg_date date not null
 );
+
+create sequence test3_seq;
